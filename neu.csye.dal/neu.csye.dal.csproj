@@ -21,8 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Entities\" />
-    <Folder Include="Functions\" />
+    <Folder Include="Functions\Crud\" />
   </ItemGroup>
 
 </Project>
