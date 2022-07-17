@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using neu.csye.dal.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -38,6 +39,27 @@ namespace neu.csye.dal.DataContext
         // DatabaseContext constructor 
         // Initializes a new instance of DbContext but with specific options
         public DatabaseContext(DbContextOptions<DatabaseContext> options) : base(options) { }
- 
+
+        // Dbsets
+        public DbSet<Applicant> Applicants { get; set; }
+        public DbSet<Application> Applications { get; set; }
+        public DbSet<ApplicationStatus> ApplicationStatuses { get; set; }
+        public DbSet<Grade> Grades { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            // Set defaults 
+            DateTime modifiedDate = DateTime.MinValue;
+
+            #region Applicant
+            modelBuilder.Entity<Applicant>().ToTable("applicant");
+            // Primary key and identity columns
+            modelBuilder.Entity<Applicant>().HasKey(a => a.ApplicantId);
+            modelBuilder.Entity<Applicant>().Property(a => a.ApplicantId).UseIdentityColumn(1, 1).IsRequired().HasColumnName("applicant_id");
+
+
+            #endregion
+        }
+
     }
 }
