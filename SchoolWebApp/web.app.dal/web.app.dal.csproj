@@ -22,9 +22,4 @@
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="7.0.0" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Functions\Crud\" />
-    <Folder Include="Functions\Interfaces\" />
-  </ItemGroup>
-
 </Project>
